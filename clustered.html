@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+{% include mode-toggle.html view="clustered" %}
+
+<div class="notebook-view clustered">
+  {% for cluster in site.data.clusters.clusters %}
+    <section class="cluster" id="{{ cluster.slug }}">
+      <header class="cluster-header">
+        <h2>{{ cluster.name }}</h2>
+        <p class="cluster-description">{{ cluster.description }}</p>
+      </header>
+      
+      <div class="cluster-entries">
+        {% assign cluster_entries = site.entries | where_exp: "entry", "entry.clusters contains cluster.slug" | sort: 'date' | reverse %}
+        
+        {% if cluster_entries.size > 0 %}
+          {% for entry in cluster_entries %}
+            {% include entry-card.html entry=entry %}
+          {% endfor %}
+        {% else %}
+          <p class="empty-cluster">No entries yet in this cluster.</p>
+        {% endif %}
+      </div>
+    </section>
+  {% endfor %}
+</div>

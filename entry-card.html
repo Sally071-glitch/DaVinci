@@ -1,0 +1,48 @@
+<article class="entry-card{% if include.entry.status %} status-{{ include.entry.status }}{% endif %}">
+  <header class="entry-card-header">
+    {% if include.entry.title %}
+      <h3 class="entry-title">
+        <a href="{{ include.entry.url | relative_url }}">{{ include.entry.title }}</a>
+      </h3>
+    {% else %}
+      <h3 class="entry-title untitled">
+        <a href="{{ include.entry.url | relative_url }}">Entry from {{ include.entry.date | date: "%d %B %Y" }}</a>
+      </h3>
+    {% endif %}
+    
+    <div class="entry-meta">
+      <time datetime="{{ include.entry.date | date_to_xmlschema }}">
+        {{ include.entry.date | date: "%d %B %Y" }}
+      </time>
+      
+      {% if include.entry.clusters %}
+        <div class="entry-clusters">
+          {% for cluster_slug in include.entry.clusters %}
+            {% assign cluster = site.data.clusters.clusters | where: "slug", cluster_slug | first %}
+            {% if cluster %}
+              <span class="cluster-tag">{{ cluster.name }}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      
+      {% if include.entry.status %}
+        <span class="entry-status">{{ include.entry.status }}</span>
+      {% endif %}
+    </div>
+  </header>
+  
+  {% if include.entry.excerpt %}
+    <div class="entry-excerpt">
+      {{ include.entry.excerpt | markdownify }}
+    </div>
+  {% else %}
+    <div class="entry-excerpt">
+      {{ include.entry.content | strip_html | truncatewords: 50 }}
+    </div>
+  {% endif %}
+  
+  <footer class="entry-card-footer">
+    <a href="{{ include.entry.url | relative_url }}" class="read-more">Read entry &rarr;</a>
+  </footer>
+</article>

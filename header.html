@@ -1,0 +1,17 @@
+<header class="site-header">
+  <div class="header-content">
+    <h1 class="site-title">
+      <a href="/">{{ site.title }}</a>
+    </h1>
+    
+    <nav class="site-nav">
+      <a href="/">Notebook</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+  
+  {% assign random_quote = site.data.marginalia.quotes | sample %}
+  <div class="header-marginalia">
+    <p class="marginalia-text">{{ random_quote.text }}</p>
+  </div>
+</header>

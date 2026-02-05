@@ -1,0 +1,44 @@
+title: DaVinci's Notebook
+description: A polymath's observations on electronics, mechanics, physics, and the natural world
+author: DaVinci
+url: "https://yourusername.github.io" # Change this to your GitHub Pages URL
+baseurl: "" # Leave empty if serving from root
+
+# Collections
+collections:
+  entries:
+    output: true
+    permalink: /:year/:month/:slug/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "entries"
+    values:
+      layout: "entry"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .gitignore
+
+# Pagination (optional)
+# paginate: 10
+# paginate_path: "/page:num/"
+
+# Timezone
+timezone: America/New_York # Change to your timezone

@@ -1,0 +1,32 @@
+clusters:
+  - slug: mechanics
+    name: Mechanics
+    description: "Gears, levers, motion, force"
+    
+  - slug: electronics
+    name: Electronics
+    description: "Circuits, current, resistance, signals"
+    
+  - slug: optics
+    name: Optics & Light
+    description: "Reflection, refraction, perception"
+    
+  - slug: mathematics
+    name: Mathematics
+    description: "Patterns, ratios, proofs, geometry"
+    
+  - slug: philosophy
+    name: Philosophy
+    description: "Fragments on method, thought, observation"
+    
+  - slug: anatomy
+    name: Anatomy
+    description: "The human machine"
+    
+  - slug: natural-philosophy
+    name: Natural Philosophy
+    description: "Water, wind, erosion, growth"
+    
+  - slug: unfinished
+    name: Unfinished Thoughts
+    description: "Sketches, questions, stray observations"

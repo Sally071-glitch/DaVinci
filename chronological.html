@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+{% include mode-toggle.html view="chronological" %}
+
+<div class="notebook-view chronological">
+  <div class="entries">
+    {% assign sorted_entries = site.entries | sort: 'date' | reverse %}
+    {% for entry in sorted_entries %}
+      {% include entry-card.html entry=entry %}
+    {% endfor %}
+  </div>
+</div>
