@@ -1,38 +1,28 @@
-# Backplane
+# Errata
 
-A static notebook-style site for documenting work in embedded systems, electronics, mechanics, and vehicle dynamics.
+A static notebook-style site built with Jekyll and hosted via GitHub Pages.
 
-This repository is built using Jekyll and hosted via GitHub Pages.  
-Entries are organized chronologically and by thematic clusters.
-
-The goal is to keep publishing lightweight:
-- Minimal structure
-- Simple Markdown files
-- No backend
-- No complex tooling
+Entries are organized by time and by thematic clusters.
 
 ---
 
-## Structure Overview
+# PART 1 — HOW TO USE (Adding Content)
 
-```
-.
-├── _posts/           # Notebook entries
-├── _data/            # Cluster definitions and site data
-├── about.md          # Preface / About page
-├── _config.yml       # Site configuration
-├── assets/           # CSS and static assets
-```
+This section is for writing and editing content.
 
 ---
 
-## Creating a New Entry
+## 1. Creating a New Entry
 
-All entries live inside the `_posts/` directory.
+All entries live inside:
 
-### Step 1: Create a new file
+```
+_entries/
+```
 
-File name format:
+### Step 1 — Create a new file
+
+Filename format:
 
 ```
 YYYY-MM-DD-title.md
@@ -44,43 +34,44 @@ Example:
 2026-02-06-stm32-timer-notes.md
 ```
 
-The date is required for Jekyll to process the post correctly.
+The date must match the date in the front matter.
 
 ---
 
-### Step 2: Add front matter
+### Step 2 — Add front matter
 
-At the top of the file, include:
+At the top of the file:
 
 ```yaml
 ---
-layout: post
-title: "STM32 Timer Notes"
+layout: entry
 date: 2026-02-06
-clusters: [silicon, circuits]
-status: draft
+clusters:
+  - silicon
+  - powertrain
+excerpt: |
+  Short summary of what this entry contains.
 ---
 ```
 
 Fields explained:
 
-- `layout`: leave as `post`
-- `title`: entry title
+- `layout`: always `entry`
 - `date`: must match filename date
 - `clusters`: must match slugs defined in `_data/clusters.yml`
-- `status`: optional (e.g. draft, fragment, complete)
+- `excerpt`: short summary shown in listings
 
 ---
 
-### Step 3: Write content in Markdown
+### Step 3 — Write content in Markdown
 
-Markdown basics:
+Basic Markdown:
 
 ```
-# Heading 1
-## Heading 2
+# Heading
+## Subheading
 
-Regular paragraph text.
+Regular text.
 
 - Bullet point
 - Another point
@@ -88,18 +79,14 @@ Regular paragraph text.
 `inline code`
 ```
 
-Code blocks:
+Code block:
 
 ```c
 uint32_t timer = 0;
 ```
 
-Save → Commit → Push.  
-GitHub Pages will rebuild automatically.
 
----
-
-## Editing the About Page
+## 2. Editing the About Page
 
 Open:
 
@@ -107,25 +94,13 @@ Open:
 about.md
 ```
 
-Modify the Markdown content below the front matter.
-
-Example structure:
-
-```yaml
----
-layout: page
-title: Preface
-permalink: /about/
----
-```
-
-Edit the text beneath it.
+Edit the content below the front matter.
 
 Commit and push changes.
 
 ---
 
-## Managing Clusters
+## 3. Managing Clusters
 
 Clusters are defined in:
 
@@ -153,27 +128,79 @@ No template edits required.
 
 ---
 
-## Adding Images to an Entry
+# PART 2 — DEVELOPER GUIDE
 
-1. Place images inside:
+This section explains the repository structure and customization.
+
+---
+
+## Repository Structure
 
 ```
-assets/images/
+.
+├── _entries/              # All notebook entries
+├── _data/               # YAML data (clusters, quotes, etc.)
+├── _layouts/            # Page and entry templates
+├── _includes/           # Reusable template components
+├── assets/
+│   ├── css/             # Styling (SCSS)          
+├── about.md             # Preface page
+├── _config.yml          # Site configuration
+└── README.md
 ```
 
-2. Reference in Markdown:
+---
 
-```markdown
-![Alt text](/assets/images/example.png)
+## Layout System
+
+Entries use:
+
+```
+layout: entry
 ```
 
-Commit and push.
+Defined in:
+
+```
+_layouts/entry.html
+```
+
+To modify entry structure:
+- Edit `_layouts/entry.html`
+- Adjust metadata rendering (clusters, excerpt, date)
+- Modify cluster links or grouping logic
+
+---
+
+## Cluster System
+
+Clusters are defined in:
+
+```
+_data/clusters.yml
+```
+
+Each cluster must contain:
+
+- `slug`
+- `name`
+- `description`
+
+Entries reference clusters via:
+
+```yaml
+clusters:
+  - silicon
+  - powertrain
+```
+
+If a slug does not exist in `_data/clusters.yml`, it will not render properly.
 
 ---
 
 ## Changing the Color Theme
 
-Theme colors are defined in:
+Primary styles are located in:
 
 ```
 assets/css/style.scss
@@ -187,27 +214,45 @@ $text-color: #3b2f2f;
 $accent-color: #6b4f3f;
 ```
 
-Modify the hex values as desired.
-
-Common edits:
-- Background color
-- Text color
-- Accent color
+Modify these values.
 
 Commit and push to apply changes.
 
 ---
 
-## Local Development (Optional)
+## Adding New Data Files
 
-If running locally:
+Custom site data can be added inside:
+
+```
+_data/
+```
+
+Example:
+
+```
+_data/marginalia.yml
+```
+
+---
+
+## Local Development
+
+To run locally:
+
+1. Install dependencies:
 
 ```
 bundle install
+```
+
+2. Start local server:
+
+```
 bundle exec jekyll serve
 ```
 
-Site will be available at:
+3. Open:
 
 ```
 http://localhost:4000
@@ -215,12 +260,34 @@ http://localhost:4000
 
 ---
 
-## Notes
+## Modifying Structure
 
-- No analytics.
-- No comment system.
-- Minimal dependencies.
-- Content-first workflow.
-- Designed for incremental entries, not polished articles.
+To modify:
 
-This repository is intentionally simple.
+- Navigation → `_includes/`
+- Layouts → `_layouts/`
+- Home logic → `index.html`
+- Cluster grouping logic → templates referencing `site.data.clusters`
+
+Changes require commit + push to deploy.
+
+---
+
+## Deployment
+
+Deployment is handled automatically via GitHub Pages.
+
+Every push to the default branch triggers rebuild.
+
+---
+
+## Design Principles
+
+- Content-first
+- Minimal abstraction
+- No analytics
+- No comments
+- No dynamic backend
+- Static, transparent structure
+
+Intended for incremental, technical entries.
