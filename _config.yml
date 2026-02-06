@@ -1,8 +1,8 @@
 title: DaVinci's Notebook
 description: A polymath's observations on electronics, mechanics, physics, and the natural world
 author: DaVinci
-url: "https://yourusername.github.io" # Change this to your GitHub Pages URL
-baseurl: "" # Leave empty if serving from root
+url: "https://sally071-glitch.github.io" # Change this to your GitHub Pages URL
+baseurl: "/DaVinci" # Leave empty if serving from root
 
 # Collections
 collections:
@@ -41,4 +41,4 @@ exclude:
 # paginate_path: "/page:num/"
 
 # Timezone
-timezone: America/New_York # Change to your timezone
+timezone: Indian/Kerguelen # Change to your timezone
