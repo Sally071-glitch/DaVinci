@@ -5,11 +5,11 @@
 
 /* Color Palette */
 :root {
-  --parchment: #05070a;
-  --ink: #e6f0ff;
-  --faded-brown: #2c3e50;
-  --subtle-shading: #0f172a;
-  --accent: #00ffcc;
+  --parchment: #08090a;      /* Deepest obsidian */
+  --ink: #ffffff;            /* Pure white for primary reading */
+  --faded-brown: #94a3b8;    /* Bright slate for secondary text (dates/meta) */
+  --subtle-shading: #161b22; /* Lighter "card" background for tags */
+  --accent: #22d3ee;         /* Electric Cyan for tags and links */
 }
 
 /* Base */
