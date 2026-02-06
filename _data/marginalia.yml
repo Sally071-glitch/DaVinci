@@ -1,18 +1,21 @@
 quotes:
-  - text: "Simplicity is the ultimate sophistication."
-    attribution: "Leonardo da Vinci"
+  - text: "We care about phase noise."
+    attribution: "Great Scott"
     
-  - text: "Learning never exhausts the mind."
-    attribution: "Leonardo da Vinci"
+  - text: "You don’t need that many screws. Or do you?"
+    attribution: "Dave Jones"
     
-  - text: "Principles for the Development of a Complete Mind: Study the science of art. Study the art of science."
-    attribution: "Leonardo da Vinci (attributed)"
+  - text: "Did you try 115200?"
+    attribution: "Mixtela"
     
-  - text: "I have been impressed with the urgency of doing. Knowing is not enough; we must apply."
-    attribution: "Leonardo da Vinci"
+  - text: "The LED is telling you something."
+    attribution: "Ben Eater"
     
-  - text: "The noblest pleasure is the joy of understanding."
-    attribution: "Leonardo da Vinci"
+  - text: "If it’s stable in SPICE, wait."
+    attribution: "Moritz-Klein"
     
-  - text: "Obstacles cannot crush me. Every obstacle yields to stern resolve."
-    attribution: "Leonardo da Vinci"
+  - text: "Half the problem is ground."
+    attribution: "Rick Hartley"
+
+ - text: "Somewhere, a capacitor is missing."
+    attribution: "DaVinci"
