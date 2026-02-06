@@ -1,4 +1,4 @@
-# Errata
+# DaVinci's Marginallia
 
 A static notebook-style site built with Jekyll and hosted via GitHub Pages.
 
