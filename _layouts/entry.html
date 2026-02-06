@@ -42,7 +42,7 @@ layout: default
           {% for cluster_slug in page.clusters %}
             {% assign cluster = site.data.clusters.clusters | where: "slug", cluster_slug | first %}
             {% if cluster %}
-              <li><a href="/themes.html#{{ cluster.slug }}">{{ cluster.name }}</a></li>
+              <li><a href="{{ '/themes.html' | relative_url }}#{{ cluster.slug }}">{{ cluster.name }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
