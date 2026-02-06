@@ -1,109 +1,226 @@
-# DaVinci's Notebook
+# Backplane
 
-A Jekyll-based static site designed like Leonardo da Vinci's notebooks: non-linear, thematic, and focused on the process of thinking rather than polished articles.
+A static notebook-style site for documenting work in embedded systems, electronics, mechanics, and vehicle dynamics.
 
-## Philosophy
+This repository is built using Jekyll and hosted via GitHub Pages.  
+Entries are organized chronologically and by thematic clusters.
 
-This isn't a blog. It's a public notebook that reflects how a polymath actually works:
+The goal is to keep publishing lightweight:
+- Minimal structure
+- Simple Markdown files
+- No backend
+- No complex tooling
 
-- **Non-linear:** Thoughts connect across disciplines
-- **Thematic:** Ideas cluster naturally by subject
-- **Fragmentary:** Not everything needs to be finished
-- **Dated but not constrained:** Time stamps exist, but themes matter more
-
-## Structure
-
-- **Two reading modes:**
-  - Chronological (default at `/`)
-  - Clustered by theme (at `/themes.html`)
-  
-- **Minimal metadata:**
-  - Date
-  - Cluster(s)
-  - Optional status (fragment, sketch, question, complete)
-
-## Getting Started
-
-### Prerequisites
-
-- Ruby (2.7 or higher)
-- Bundler
-
-### Local Development
-
-1. Clone this repository
-2. Install dependencies:
-   ```bash
-   bundle install
-   ```
-
-3. Run the local server:
-   ```bash
-   bundle exec jekyll serve
-   ```
-
-4. Visit `http://localhost:4000`
-
-### Adding a New Entry
-
-Create a new file in `_entries/` with this format:
-
-```markdown
----
-layout: entry
-title: "Your Entry Title" # Optional
-date: YYYY-MM-DD
-clusters:
-  - cluster-slug
-  - another-cluster-slug
-excerpt: |
-  Brief summary (optional)
-status: fragment # or: sketch, question, complete
 ---
 
-Your entry content here...
+## Structure Overview
+
+```
+.
+├── _posts/           # Notebook entries
+├── _data/            # Cluster definitions and site data
+├── about.md          # Preface / About page
+├── _config.yml       # Site configuration
+├── assets/           # CSS and static assets
 ```
 
-### Adding a New Cluster
+---
 
-Edit `_data/clusters.yml`:
+## Creating a New Entry
+
+All entries live inside the `_posts/` directory.
+
+### Step 1: Create a new file
+
+File name format:
+
+```
+YYYY-MM-DD-title.md
+```
+
+Example:
+
+```
+2026-02-06-stm32-timer-notes.md
+```
+
+The date is required for Jekyll to process the post correctly.
+
+---
+
+### Step 2: Add front matter
+
+At the top of the file, include:
 
 ```yaml
-clusters:
-  - slug: your-new-cluster
-    name: Display Name
-    description: "Brief description"
+---
+layout: post
+title: "STM32 Timer Notes"
+date: 2026-02-06
+clusters: [silicon, circuits]
+status: draft
+---
 ```
 
-No template changes needed.
+Fields explained:
 
-## Deployment
-
-This site is designed for GitHub Pages:
-
-1. Push to your repository
-2. Enable GitHub Pages in repository settings
-3. Set source to `main` branch, `/` (root)
-
-## Customization
-
-- **Colors:** Edit CSS variables in `assets/css/notebook.css`
-- **Quotes:** Edit `_data/marginalia.yml`
-- **Site metadata:** Edit `_config.yml`
-- **About page:** Edit `about.md`
-
-## Design Principles
-
-- Structure over visual polish
-- Fragments are features, not bugs
-- Multiple reading paths (chronological vs. thematic)
-- Cross-disciplinary by default
-- Minimal, parchment-toned aesthetic
-
-## License
-
-MIT License - Use this however you like.
+- `layout`: leave as `post`
+- `title`: entry title
+- `date`: must match filename date
+- `clusters`: must match slugs defined in `_data/clusters.yml`
+- `status`: optional (e.g. draft, fragment, complete)
 
 ---
 
-*"Learning never exhausts the mind."* — Leonardo da Vinci
+### Step 3: Write content in Markdown
+
+Markdown basics:
+
+```
+# Heading 1
+## Heading 2
+
+Regular paragraph text.
+
+- Bullet point
+- Another point
+
+`inline code`
+```
+
+Code blocks:
+
+```c
+uint32_t timer = 0;
+```
+
+Save → Commit → Push.  
+GitHub Pages will rebuild automatically.
+
+---
+
+## Editing the About Page
+
+Open:
+
+```
+about.md
+```
+
+Modify the Markdown content below the front matter.
+
+Example structure:
+
+```yaml
+---
+layout: page
+title: Preface
+permalink: /about/
+---
+```
+
+Edit the text beneath it.
+
+Commit and push changes.
+
+---
+
+## Managing Clusters
+
+Clusters are defined in:
+
+```
+_data/clusters.yml
+```
+
+Example:
+
+```yaml
+- slug: silicon
+  name: Silicon & State Machines
+  description: "STM32, CH32V, deterministic control"
+```
+
+To add a new cluster:
+
+1. Add a new block with:
+   - unique `slug`
+   - display `name`
+   - short `description`
+2. Save and commit.
+
+No template edits required.
+
+---
+
+## Adding Images to an Entry
+
+1. Place images inside:
+
+```
+assets/images/
+```
+
+2. Reference in Markdown:
+
+```markdown
+![Alt text](/assets/images/example.png)
+```
+
+Commit and push.
+
+---
+
+## Changing the Color Theme
+
+Theme colors are defined in:
+
+```
+assets/css/style.scss
+```
+
+Look for variables such as:
+
+```scss
+$background-color: #f5e9d4;
+$text-color: #3b2f2f;
+$accent-color: #6b4f3f;
+```
+
+Modify the hex values as desired.
+
+Common edits:
+- Background color
+- Text color
+- Accent color
+
+Commit and push to apply changes.
+
+---
+
+## Local Development (Optional)
+
+If running locally:
+
+```
+bundle install
+bundle exec jekyll serve
+```
+
+Site will be available at:
+
+```
+http://localhost:4000
+```
+
+---
+
+## Notes
+
+- No analytics.
+- No comment system.
+- Minimal dependencies.
+- Content-first workflow.
+- Designed for incremental entries, not polished articles.
+
+This repository is intentionally simple.
