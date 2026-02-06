@@ -5,9 +5,9 @@ title: About
 
 # About
 
-Hi I am DaVinci and this is **Errata**
+Hi I am DaVinci, and these are my marginalia.
 
-## What is Errata about a ?
+## What is Errata about ?
 
 This is a working notebook.
 It contains ideas about circuits, control systems, vehicle dynamics, firmware, and things that didn’t behave the way they were supposed to.
@@ -18,7 +18,7 @@ If it fails, it will probably be explained better.
 
 ## How to Navigate
 
-You can browse through codex in two ways:
+You can browse through *Errata* in two ways:
 
 1. **Chronologically** — like flipping through pages in order
 2. **By Theme** — like organizing pages by subject matter
