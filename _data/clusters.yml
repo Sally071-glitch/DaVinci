@@ -1,31 +1,31 @@
 clusters:
-  - slug: mechanics
-    name: Mechanics
-    description: "Gears, levers, motion, force"
-    
+  - slug: silicon
+    name: Silicon & State Machines
+    description: "STM32, CH32V, deterministic control"
+
   - slug: electronics
     name: Electronics
     description: "Circuits, current, resistance, signals"
     
-  - slug: optics
-    name: Optics & Light
-    description: "Reflection, refraction, perception"
+  - slug: powertrain
+    name: Power & Control
+    description: "EV systems, torque, energy under load"
     
-  - slug: mathematics
-    name: Mathematics
-    description: "Patterns, ratios, proofs, geometry"
+  - slug: vehicle-dynamics
+    name: Vehicle Dynamics
+    description: "Load transfer, grip, controlled instability"
     
-  - slug: philosophy
-    name: Philosophy
-    description: "Fragments on method, thought, observation"
+  - slug: lab-notes
+    name: Lab Notes
+    description: "Prototypes, half-finished ideas, chaos"
     
-  - slug: anatomy
-    name: Anatomy
-    description: "The human machine"
+  - slug: fragments
+    name: Fragments
+    description: "Unfinished thoughts and questions"
     
-  - slug: natural-philosophy
-    name: Natural Philosophy
-    description: "Water, wind, erosion, growth"
+ - slug: experimental
+   name: Experimental Builds
+   description: "Prototypes & reverse engineering"
     
   - slug: unfinished
     name: Unfinished Thoughts
