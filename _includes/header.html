@@ -1,12 +1,12 @@
 <header class="site-header">
   <div class="header-content">
     <h1 class="site-title">
-      <a href="/">{{ site.title }}</a>
+      <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
     </h1>
     
     <nav class="site-nav">
-      <a href="/">Notebook</a>
-      <a href="/about.html">About</a>
+      <a href="{{ '/' | relative_url }}">Notebook</a>
+      <a href="{{ '/about.html' | relative_url }}">About</a>
     </nav>
   </div>
   
