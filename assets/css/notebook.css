@@ -5,11 +5,11 @@
 
 /* Color Palette */
 :root {
- --parchment: #050a15;
-  --ink: #b3c7ff;
-  --faded-brown: #4d648d;
-  --subtle-shading: #0e1629;
-  --accent: #39ff14;
+ --parchment: #000000;
+  --ink: #ffffff;
+  --faded-brown: #666666;
+  --subtle-shading: #121212;
+  --accent: #00ff41;
 }
 
 /* Base */
