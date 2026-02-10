@@ -12,7 +12,7 @@ This section is for writing and editing content.
 
 ---
 
-## 1. Creating a New Entry
+## 1. Creating a New Errata
 
 All entries live inside:
 
@@ -138,7 +138,7 @@ This section explains the repository structure and customization.
 
 ```
 .
-├── _entries/              # All notebook entries
+├── _entries/            # All notebook entries
 ├── _data/               # YAML data (clusters, quotes, etc.)
 ├── _layouts/            # Page and entry templates
 ├── _includes/           # Reusable template components
